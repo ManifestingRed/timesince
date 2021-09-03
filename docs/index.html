@@ -1,0 +1,46 @@
+<html>
+<head>
+	<style type="text/css">
+		body {
+			font-family: Gotham Extra Bold;
+			color:  #200000;
+			background-color: A00000;
+		}
+
+		.time {
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<div class='time' id='years'></div>
+	<div class='time' id='months'></div>
+	<div class='time' id='days'></div>
+	<div class='time' id='hours'></div>
+	<div class='time' id='minutes'></div>
+	<div class='time' id='seconds'></div>
+	<div class='time' id='millis'></div>
+	<script>
+		var startDate = Date.parse('2021-08-01T00:00:00.000-04:00');
+		function set(i, v, l) {
+			document.querySelector('#' + i).textContent = `${v}${l}`;
+		}
+		function update() {
+			var now = Date.now();
+			var delta = (now - startDate);
+			var millis = Math.floor(delta%1000);
+			var seconds = Math.floor(delta/1000)%60;
+			var minutes = Math.floor((delta/(60*1000))%60);
+			var hours = Math.floor((delta/(60*60*1000))%24);
+			var days = Math.floor((delta/(60*60*1000))/24);
+			set('millis', millis, 'ms');
+			set('seconds', seconds, 's');
+			set('minutes', minutes, 'm');
+			set('hours', hours, 'h');
+			set('days', days, 'd');
+		}
+
+		setInterval(update, 500);
+	</script>
+</body>
+</html>	
