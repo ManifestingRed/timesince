@@ -8,8 +8,18 @@
 			font-weight: bold;
 		}
 
+		/* thx internet, i forget css https://stackoverflow.com/questions/31217268/center-div-on-the-middle-of-screen */
+		.clock {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			min-height: 100vh;
+		}
+
 		.time {
 			display: inline-block;
+			padding-right: 10px;
 		}
 
 		#millis {
@@ -18,13 +28,15 @@
 	</style>
 </head>
 <body>
-	<div class='time' id='years'></div>
-	<div class='time' id='months'></div>
-	<div class='time' id='days'></div>
-	<div class='time' id='hours'></div>
-	<div class='time' id='minutes'></div>
-	<div class='time' id='seconds'></div>
-	<div class='time' id='millis'></div>
+	<div class='clock'>
+		<div class='time' id='years'></div>
+		<div class='time' id='months'></div>
+		<div class='time' id='days'></div>
+		<div class='time' id='hours'></div>
+		<div class='time' id='minutes'></div>
+		<div class='time' id='seconds'></div>
+		<div class='time' id='millis'></div>
+	</div>
 	<script>
 		var startDate = Date.parse('2021-08-01T00:00:00.000-04:00');
 		function set(i, v, l) {
