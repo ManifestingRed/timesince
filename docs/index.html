@@ -2,7 +2,7 @@
 <head>
 	<style type="text/css">
 		body {
-			font-family: Helvetica Bold;
+			font-family: Helvetica Narrow;
 			color:  A00000;
 			background-color: white;
 			font-weight: bold;
@@ -19,7 +19,7 @@
 
 		.time {
 			display: inline-block;
-			padding-right: 10px;
+			padding-right: 5px;
 		}
 
 		#millis {
@@ -38,7 +38,7 @@
 		<div class='time' id='millis'></div>
 	</div>
 	<script>
-		var startDate = Date.parse('2021-08-01T00:00:00.000-04:00');
+		var startDate = Date.parse('2021-06-12T00:00:00.000-04:00');
 		function set(i, v, l) {
 			document.querySelector('#' + i).textContent = `${v}${l}`;
 		}
