@@ -2,13 +2,12 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
 	<style type="text/css">
 		body {
-			font-family: 'Archivo Narrow', sans-serif;
+			font-family: 'Oswald', sans-serif;
 			color:  white;
 			background-color: A00000;
-			font-weight: bold;
             font-size:80pt
 		}
 
@@ -22,7 +21,7 @@
 		}
 
 		.time {
-			display: inline-block;
+			
 			padding-right: 5px;
 		}
 
@@ -55,11 +54,11 @@
 			var minutes = Math.floor((delta/(60*1000))%60);
 			var hours = Math.floor((delta/(60*60*1000))%24);
 			var days = Math.floor((delta/(60*60*1000))/24);
-			set('millis', millis, '.');
+			set('millis', millis, '');
 			set('seconds', seconds, '');
-			set('minutes', minutes, ':');
-			set('hours', hours, ':');
-			set('days', days, ':');
+			set('minutes', minutes, '');
+			set('hours', hours, '');
+			set('days', days, '');
 		}
 
 		setInterval(update, 500);
