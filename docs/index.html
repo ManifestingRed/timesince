@@ -1,14 +1,11 @@
 <html>
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
 	<style type="text/css">
 		body {
-			font-family: 'Oswald', sans-serif;
-			color:  white;
 			background-color: A00000;
-            font-size:80pt
 		}
 
 		/* thx internet, i forget css https://stackoverflow.com/questions/31217268/center-div-on-the-middle-of-screen */
@@ -18,47 +15,72 @@
 			align-items: center;
 			text-align: center;
 			min-height: 100vh;
+			flex-flow: column;
 		}
 
-		.time {
-			
-			padding-right: 5px;
+		.fulltime {
+			color:  white;
+			font-family: 'Oswald', sans-serif;
+			font-weight: bold;
+            font-size:80pt
 		}
 
-		#millis {
-			display: none;
+		.phases {
+			color: black;
+			font-family: 'Oswald', sans-serif;
+			font-weight: bold;
+            font-size:50pt
 		}
 	</style>
 </head>
 <body>
 	<div class='clock'>
-		<div class='time' id='years'></div>
-		<div class='time' id='months'></div>
-		<div class='time' id='days'></div>
-		<div class='time' id='hours'></div>
-		<div class='time' id='minutes'></div>
-		<div class='time' id='seconds'></div>
-		<div class='time' id='millis'></div>
-    
+		<div class='fulltime'></div>
+		<div class='phases'></div>
 	</div>
 	<script>
-		var startDate = Date.parse('2021-06-12T00:00:00.000-04:00');
-		function set(i, v, l) {
-			document.querySelector('#' + i).textContent = `${v}${l}`;
-		}
-		function update() {
-			var now = Date.now();
-			var delta = (now - startDate);
+		const dates = {
+			beginning: Date.parse('2021-04-01T00:00:00.000-04:00'),
+			baby: Date.parse('2021-05-21T00:00:00.000-04:00'),
+			toddler: Date.parse('2021-07-01T00:00:00.000-04:00'),
+			adolescent: null,
+			teenager: null,
+			adult: null,
+			retirement: null
+		};
+
+		function timeBetween(start, end) {
+			var delta = (end - start);
 			var millis = Math.floor(delta%1000);
 			var seconds = Math.floor(delta/1000)%60;
 			var minutes = Math.floor((delta/(60*1000))%60);
 			var hours = Math.floor((delta/(60*60*1000))%24);
 			var days = Math.floor((delta/(60*60*1000))/24);
-			set('millis', millis, '');
-			set('seconds', seconds, '');
-			set('minutes', minutes, '');
-			set('hours', hours, '');
-			set('days', days, '');
+			return {
+				millis,
+				seconds,
+				minutes,
+				hours,
+				days
+			};
+		}
+		const zeroPadded = x => x.toString().padStart(2, '0');
+		const nonNegative = x => Math.max(x, 0);
+		const Z = x => zeroPadded(nonNegative(x));
+		function update() {
+			const now = Date.now();
+			var full = timeBetween(dates.beginning, now);
+
+			const p = {
+				baby: timeBetween(dates.beginning, dates.baby),
+				toddler: timeBetween(dates.baby, dates.toddler),
+				adolescent: timeBetween(dates.toddler, dates.adolescent),
+				teenager: timeBetween(dates.adolescent, dates.teenager),
+				adult: timeBetween(dates.teenager, dates.adult),
+				retirement: timeBetween(dates.adult, dates.retirement)
+			};
+			document.querySelector('.fulltime').textContent = `${Z(full.days)}:${Z(full.hours)}:${Z(full.minutes)}:${Z(full.seconds)}`;
+			document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
 
 		setInterval(update, 500);
