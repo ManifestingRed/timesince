@@ -56,9 +56,9 @@
 			var days = Math.floor((delta/(60*60*1000))/24);
 			set('millis', millis, '');
 			set('seconds', seconds, '');
-			set('minutes', minutes, '');
-			set('hours', hours, '');
-			set('days', days, '');
+			set('minutes', minutes, ':');
+			set('hours', hours, ':');
+			set('days', days, ':');
 		}
 
 		setInterval(update, 500);
