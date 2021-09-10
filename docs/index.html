@@ -56,11 +56,31 @@
 			var minutes = Math.floor((delta/(60*1000))%60);
 			var hours = Math.floor((delta/(60*60*1000))%24);
 			var days = Math.floor((delta/(60*60*1000))/24);
-			set('millis', millis, '');
-			set('seconds', seconds, '');
-			set('minutes', minutes, ':');
-			set('hours', hours, ':');
-			set('days', days, ':');
+			return {
+				millis,
+				seconds,
+				minutes,
+				hours,
+				days
+			};
+		}
+		const zeroPadded = x => x.toString().padStart(2, '0');
+		const nonNegative = x => Math.max(x, 0);
+		const Z = x => zeroPadded(nonNegative(x));
+		function update() {
+			const now = Date.now();
+			var full = timeBetween(dates.beginning, now);
+
+			const p = {
+				baby: timeBetween(dates.beginning, dates.baby),
+				toddler: timeBetween(dates.baby, dates.toddler),
+				adolescent: timeBetween(dates.toddler, dates.adolescent),
+				teenager: timeBetween(dates.adolescent, dates.teenager),
+				adult: timeBetween(dates.teenager, dates.adult),
+				retirement: timeBetween(dates.adult, dates.retirement)
+			};
+			document.querySelector('.fulltime').textContent = `${Z(full.days)}:${Z(full.hours)}:${Z(full.minutes)}:${Z(full.seconds)}`;
+			document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
 
 		setInterval(update, 500);
