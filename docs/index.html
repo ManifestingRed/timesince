@@ -1,12 +1,13 @@
 <html>
 <head>
-	<link href="http://fonts.cdnfonts.com/css/gotham-narrow" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
 	<style type="text/css">
-		@import url('http://fonts.cdnfonts.com/css/gotham-narrow');
+		
 		
 		body {
-			font-family: 'Gotham Narrow', sans-serif;
-            font-family: 'Gotham XNarrow', sans-serif;                         
+			font-family: 'Roboto', sans-serif;                   
 			color:  white;
 			background-color: #A00000;
             font-size:80pt
@@ -80,7 +81,7 @@
 				retirement: timeBetween(dates.adult, dates.retirement)
 			};
 			//document.querySelector('.fulltime').textContent = `${Z(full.days)}${Z(full.hours)}${Z(full.minutes)}${Z(full.seconds)}`;
-			document.querySelector('.fulltime').textContent = `${Z(full.days)}:${Z(full.hours)}:${Z(full.minutes)}:${Z(full.seconds)}`;
+			document.querySelector('.fulltime').textContent = `${Z(full.hours)}:${Z(full.minutes)}:${Z(full.seconds)}`;
 			document.querySelector('.phases').textContent = `🐣${Z((full.days)-49)}`;
 			//document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
