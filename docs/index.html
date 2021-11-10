@@ -70,7 +70,8 @@
 		const Z = x => zeroPadded(nonNegative(x));
 		function update() {
 			const now = Date.now();
-			var full = timeBetween(dates.beginning, now);
+			const full = timeBetween(dates.beginning, now);
+			const currentTime = timeBetween(0, new Date().getTime() - new Date().getTimezoneOffset()*60*1000);
 
 			const p = {
 				baby: timeBetween(dates.beginning, dates.baby),
@@ -80,8 +81,9 @@
 				adult: timeBetween(dates.teenager, dates.adult),
 				retirement: timeBetween(dates.adult, dates.retirement)
 			};
+
 			//document.querySelector('.fulltime').textContent = `${Z(full.days)}${Z(full.hours)}${Z(full.minutes)}${Z(full.seconds)}`;
-			document.querySelector('.fulltime').textContent = `${Z(full.hours)}:${Z(full.minutes)}:${Z(full.seconds)}`;
+			document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
 			document.querySelector('.phases').textContent = `🐣${Z((full.days)-49)}`;
 			//document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
