@@ -44,12 +44,12 @@
 		<div>&nbsp</div>
 		<div class='phases2'></div>
 		<div>🐣100</div>
-		<div>💥50</div>
-		<div>🥚37</div>
+		<div>💥24</div>
+		<div>🥚59</div>
 	</div>
 	<script>
 		const dates = {
-			beginning: Date.parse('2021-06-12T00:00:00.000-04:00'),
+			beginning: Date.parse('2021-05-07T00:00:00.000-04:00'),
 			baby: Date.parse('2021-09-01T00:00:00.000-04:00'),
 			toddler: null,
 			adolescent: null,
@@ -92,11 +92,8 @@
 
 			//document.querySelector('.fulltime').textContent = `${Z(full.days)}${Z(full.hours)}${Z(full.minutes)}${Z(full.seconds)}`;
 			document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
-			document.querySelector('.phases').textContent = `🐥${Z((full.days)-149)}`;
+			document.querySelector('.phases').textContent = `🐥${Z((full.days)-185)}`;
 			document.querySelector('.phases2').textContent = `🧭${Z((full.days))}`;
-			document.querySelector('.phases3').textContent = `🐣100`;
-			document.querySelector('.phases4').textContent = `💥50`;
-			document.querySelector('.phases5').textContent = `🥚37`;
 			//document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
 
