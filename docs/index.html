@@ -35,20 +35,26 @@
 		}
 
 		.phases2 {
-			color: #000000;
+			font-size:40pt;
+			color: #eb5a45;
+			font-weight:lighter;
 		}
+
+		
 	</style>
 </head>
 <body>
 	<div class='clock'>
 		<div>&nbsp;</div>
-		<div class='phases2'></div>
+		<div class='phases'></div>
 		<div class='fulltime'></div>
+		<div class='phases2'></div>
 		<div>&nbsp</div>
 		<div class='phases'></div>
-		<div><img width='75px' src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/309/front-facing-baby-chick_1f425.png'>194</div>
-		<div><img width='75px' src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/309/hatching-chick_1f423.png'>100</div>
-		<div><img width='75px' src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/microsoft/309/collision_1f4a5.png'>25</div>	
+		<div><img width='75px' src='https://em-content.zobj.net/thumbs/320/microsoft/74/baby-chick_1f424.png'>200</div>
+		<div><img width='75px' src='https://em-content.zobj.net/thumbs/240/microsoft/309/front-facing-baby-chick_1f425.png'>194</div>
+		<div><img width='75px' src='https://em-content.zobj.net/thumbs/240/microsoft/309/hatching-chick_1f423.png'>100</div>
+		<div><img width='75px' src='https://em-content.zobj.net/thumbs/240/microsoft/309/collision_1f4a5.png'>25</div>	
 		<div>&nbsp</div>
 		<div class='smalltime'></div>
 		<div>&nbsp</div>
@@ -100,8 +106,8 @@
 			//document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
 			document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
 			document.querySelector('.smalltime').textContent = `${Z(currentTime.hours)}${Z(currentTime.minutes)}`;
-			document.querySelector('.phases').innerHTML = `<img width='75px' src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/microsoft/74/baby-chick_1f424.png'>${Z((full.days)-379)}`;
-			document.querySelector('.phases2').innerHTML = `<img width='80fpx' src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/openmoji/292/hollow-red-circle_2b55.png'>0${Z((full.days))}`;
+			document.querySelector('.phases').innerHTML = `<img width='75px' src='https://em-content.zobj.net/thumbs/160/microsoft/74/fire_1f525.png'>${Z((full.days)-579)}`;
+			document.querySelector('.phases2').innerHTML = `<img width='40fpx' src='https://em-content.zobj.net/thumbs/240/openmoji/292/hollow-red-circle_2b55.png'>${Z((full.days))}`;
 			//document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
 
