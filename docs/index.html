@@ -107,9 +107,9 @@
 			};
 
 			//document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
-			document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
+			document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}${Z(currentTime.minutes)}${Z(currentTime.seconds)}`;
 			document.querySelector('.smalltime').textContent = `${Z(currentTime.hours)}${Z(currentTime.minutes)}`;
-			document.querySelector('.phases').innerHTML = `<img width='75px' src='https://em-content.zobj.net/thumbs/160/microsoft/74/fire_1f525.png'>${Z((full.days)-579)}`;
+			document.querySelector('.phases').innerHTML = `0${Z((full.days)-86)}`;
 			document.querySelector('.phases2').innerHTML = `<img width='40fpx' src='https://em-content.zobj.net/thumbs/240/openmoji/292/hollow-red-circle_2b55.png'>${Z((full.days))}`;
 			//document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
