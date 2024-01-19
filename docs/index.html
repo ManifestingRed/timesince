@@ -34,13 +34,21 @@
 		.phases {
 			color: rgb(238, 176, 5);
 			height: 90px;
+			font-size:100pt;
 		}
 
+		.phasesX {
+			color: rgb(238, 176, 5);
+			height: 90px;
+			font-size:100pt;
+		}
+
+
 		.phases2 {
-			font-size:40pt;
+			font-size:80pt;
 			color: #eb5a45;
 			font-weight:lighter;
-			height: 90px;
+			height: 80px;
 		}
 
 		
@@ -60,6 +68,7 @@
 		<div>&nbsp</div>
 		<div class='smalltime'></div>
 		<div>&nbsp</div>
+		<div class='phasesX'></div>
 				 </div>
 	</div>
 	<script>
@@ -107,8 +116,9 @@
 
 			//document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}:${Z(currentTime.minutes)}:${Z(currentTime.seconds)}`;
 			document.querySelector('.fulltime').textContent = `${Z(currentTime.hours)}${Z(currentTime.minutes)}${Z(currentTime.seconds)}`;
-			document.querySelector('.smalltime').textContent = `${Z(currentTime.hours)}${Z(currentTime.minutes)}`;
-			document.querySelector('.phases').innerHTML = `0${Z((full.days)+14)}`;
+			document.querySelector('.smalltime').textContent = `${Z(currentTime.hours)}${Z(currentTime.minutes)}${Z(currentTime.seconds)}`;
+			document.querySelector('.phases').innerHTML = `${Z((full.days)+14)}`;
+			document.querySelector('.phasesX').innerHTML = `${Z((full.days)+14)}`;
 			document.querySelector('.phases2').innerHTML = `<img width='40fpx' src='https://em-content.zobj.net/thumbs/240/openmoji/292/hollow-red-circle_2b55.png'>${Z((full.days))}`;
 			//document.querySelector('.phases').textContent = `🥚${Z(p.baby.days)}🐣${Z(p.toddler.days)}🐥${Z(p.adolescent.days)}🐤${Z(p.teenager.days)}🔥${Z(p.adult.days)}`;
 		}
